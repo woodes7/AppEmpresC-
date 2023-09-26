@@ -6,7 +6,8 @@ using System.Text;
 using System.Threading.Tasks;
 namespace AppCliente.Service
 {
-    internal class InterfaceMenu : ImplementMenu
+    internal interface InterfaceMenu 
     {
+         void Menu();
     }
 }

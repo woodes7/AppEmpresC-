@@ -1,4 +1,5 @@
-﻿using System;
+﻿using AppCliente.Service;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -10,6 +11,61 @@ namespace AppCliente
     {
         static void Main(string[] args)
         {
+            // Creamos instancias de las clases en C#
+            InterfaceEmpleado empleado = new ImplementEmpleado();
+            InterfaceMenu implMenu = new ImplementMenu();
+            InterfaceFichero implFile = new ImplementFichero();
+
+            // Creamos variables que vamos a usar
+            int opcion;
+            bool opcionValida = false;
+
+            // Lista de Empleados
+            List<Empleado> listaEmpleado = new List<Empleado>();
+            string archivoRuta = "bin/BasedeDatosPacientes.txt";
+
+            do
+            {
+                try
+                {
+                    // Mostramos el menú
+                    implMenu.Menu();
+
+                    opcion = int.Parse(Console.ReadLine());
+                    Console.WriteLine("[INFO] - Has seleccionado la opcion " + opcion);
+
+                    switch (opcion)
+                    {
+                        case 1:
+                            empleado.AddEmpleado(listaEmpleado, archivoRuta);
+                            break;
+                        case 2:
+                            empleado.ModificarEmpleado(listaEmpleado, archivoRuta);
+                            break;
+                        case 3:
+                            empleado.ExportarEmpleado(listaEmpleado, archivoRuta);
+                            break;
+                        case 4:
+                            Console.WriteLine("Saliendo del Programa. Adiós...");
+                            opcionValida = true;
+                            break;
+                        default:
+                            Console.WriteLine("Error: Opción inválida. Por favor, introduce un número válido.");
+                            break;
+                    }
+                }
+                catch (FormatException e)
+                {
+                    Console.WriteLine("Error: Opción inválida. Por favor, introduce un número válido.");
+                }
+                catch (Exception e)
+                {
+                    Console.WriteLine("Se produjo un error: " + e.Message);
+                }
+            } while (!opcionValida);
         }
     }
+
 }
+   
+
