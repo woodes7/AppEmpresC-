@@ -7,8 +7,8 @@ using System.Threading.Tasks;
 namespace AppCliente.Service
 {
     internal interface InterfaceEmpleado {
-        public void AddEmpleado(List<Empleado> listPacientes, String ruta);
-        private void ModificarEmpleado(List<Empleado> listPacientes, String ruta);
-        private void ExportarEmpleado(List<Empleado> listPacientes, String ruta);
+         void AddEmpleado(List<Empleado> listaEmpleado, String ruta);
+         void ModificarEmpleado(List<Empleado> listaEmpleado, String ruta);
+         void ExportarEmpleado(List<Empleado> listPacientes, String ruta);
     }
 }
