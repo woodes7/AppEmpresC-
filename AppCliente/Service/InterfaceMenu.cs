@@ -6,8 +6,10 @@ using System.Text;
 using System.Threading.Tasks;
 namespace AppCliente.Service
 {
-    internal interface InterfaceMenu 
-    {
-         void Menu();
+    internal interface InterfaceMenu
+    {   /// <summary>
+        /// Sirve par mostrar el menu en consola
+        /// </summary>
+        void Menu();
     }
 }

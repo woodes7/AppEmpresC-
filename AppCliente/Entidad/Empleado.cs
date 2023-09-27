@@ -8,16 +8,16 @@ using System.Threading.Tasks;
 namespace AppCliente
 {
     internal class Empleado
-    {
+    {   //Atributo
+        string dni;
         string nombre;
         string apellidos;
-        string dni;
         string fechaNacimiento;
         string titulaciónAlta;
         string numeroSeguridadSocial;
         string numeroCuenta;
         int numEmpleado;
-
+        //Constructor
         public Empleado(string nombre, string apellidos, string dni, string fechaNacimiento, string titulaciónAlta, string numeroSeguridadSocial, string numeroCuenta, int numEmpleado)
         {
             this.nombre = nombre;
@@ -29,9 +29,11 @@ namespace AppCliente
             this.numeroCuenta = numeroCuenta;
             this.numEmpleado = numEmpleado;
         }
-        public Empleado() {
-        }        
 
+        public Empleado()
+        {
+        }
+        //Getters && Stetters
         public string Nombre { get => nombre; set => nombre = value; }
         public string Apellidos { get => apellidos; set => apellidos = value; }
         public string Dni { get => dni; set => dni = value; }
@@ -41,6 +43,7 @@ namespace AppCliente
         public string NumeroCuenta { get => numeroCuenta; set => numeroCuenta = value; }
         public int NumEmpleado { get => numEmpleado; set => numEmpleado = value; }
 
+        //To String
         public override string ToString()
         {
             return $"Número de Empleado: {NumEmpleado}, DNI{Dni}, Nombre: {Nombre}, Apellidos: {Apellidos}, Fecha de Nacimiento: {FechaNacimiento}\n Número de Cuenta, {NumeroCuenta}, Número de la Seguridad Social{NumeroSeguridadSocial}, Titulacion mas Alta {TitulaciónAlta}";

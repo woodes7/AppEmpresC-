@@ -5,3 +5,10 @@ C:\Users\pablo\OneDrive\Escritorio\Pablo\DIW\AppEmpresa\AppCliente\bin\Debug\App
 C:\Users\pablo\OneDrive\Escritorio\Pablo\DIW\AppEmpresa\AppCliente\bin\Debug\AppCliente.pdb
 C:\Users\pablo\OneDrive\Escritorio\Pablo\DIW\AppEmpresa\AppCliente\obj\Debug\AppCliente.exe
 C:\Users\pablo\OneDrive\Escritorio\Pablo\DIW\AppEmpresa\AppCliente\obj\Debug\AppCliente.pdb
+C:\Users\Puesto4\Desktop\Pablo\DIW\AppCliente\AppCliente\bin\Debug\AppCliente.exe.config
+C:\Users\Puesto4\Desktop\Pablo\DIW\AppCliente\AppCliente\bin\Debug\AppCliente.exe
+C:\Users\Puesto4\Desktop\Pablo\DIW\AppCliente\AppCliente\bin\Debug\AppCliente.pdb
+C:\Users\Puesto4\Desktop\Pablo\DIW\AppCliente\AppCliente\obj\Debug\AppCliente.csproj.AssemblyReference.cache
+C:\Users\Puesto4\Desktop\Pablo\DIW\AppCliente\AppCliente\obj\Debug\AppCliente.csproj.CoreCompileInputs.cache
+C:\Users\Puesto4\Desktop\Pablo\DIW\AppCliente\AppCliente\obj\Debug\AppCliente.exe
+C:\Users\Puesto4\Desktop\Pablo\DIW\AppCliente\AppCliente\obj\Debug\AppCliente.pdb

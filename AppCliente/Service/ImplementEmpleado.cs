@@ -11,7 +11,7 @@ namespace AppCliente.Service
     internal class ImplementEmpleado : InterfaceEmpleado
     {
         InterfaceFichero ImplFichero = new ImplementFichero();
-        
+
         private int contadorNumEmpleado = 1;
 
         void InterfaceEmpleado.AddEmpleado(List<Empleado> listaEmpleado, string ruta)
@@ -22,61 +22,71 @@ namespace AppCliente.Service
             try
             {
                 while (!DniOK)
-            {
-                Console.WriteLine("\t\tDime número de DNI del empleado");
-                dni = Console.ReadLine();
-                DniOK = !CompruebaDni(listaEmpleado, dni);
-                if (!DniOK)
-                    Console.WriteLine("\t\tYa hay un empleado registrado con ese DNI");
-            }
+                {
+                    Console.WriteLine("\t\tDime número de DNI del empleado");
+                    dni = Console.ReadLine();
+                    DniOK = !CompruebaDni(listaEmpleado, dni);
+                    if (!DniOK)
+                        Console.WriteLine("\t\tYa hay un empleado registrado con ese DNI");
+                }
 
-            Console.WriteLine("\t\tDime nombre del empleado");
-            nombre = Console.ReadLine();
+                Console.WriteLine("\t\tDime nombre del empleado");
+                nombre = Console.ReadLine();
 
-            Console.WriteLine("\t\tDime apellidos del empleado");
-            string apellidos = Console.ReadLine();
+                Console.WriteLine("\t\tDime apellidos del empleado");
+                string apellidos = Console.ReadLine();
 
-            Console.WriteLine("\t\tDime la fecha de nacimiento del empleado");
-            string fechaNacimiento = Console.ReadLine();
+                Console.WriteLine("\t\tDime la fecha de nacimiento del empleado");
+                string fechaNacimiento = Console.ReadLine();
 
-            Console.WriteLine("\t\tDime la titulación más alta del empleado");
-            string titulaciónAlta = Console.ReadLine();
+                Console.WriteLine("\t\tDime la titulación más alta del empleado");
+                string titulaciónAlta = Console.ReadLine();
 
-            Console.WriteLine("\t\tDime el número de la seguridad social del empleado");
-            string numeroSeguridadSocial = Console.ReadLine();
+                Console.WriteLine("\t\tDime el número de la seguridad social del empleado");
+                string numeroSeguridadSocial = Console.ReadLine();
 
-            Console.WriteLine("\t\tDime el número de la cuenta bancaria del empleado");
-            string numeroCuenta = Console.ReadLine();
+                Console.WriteLine("\t\tDime el número de la cuenta bancaria del empleado");
+                string numeroCuenta = Console.ReadLine();
 
-            int numEmpleado = GenerarNumEmpleado(); 
+                int numEmpleado = GenerarNumEmpleado();
 
-            Empleado empleado = new Empleado(dni, nombre, apellidos, fechaNacimiento, titulaciónAlta, numeroSeguridadSocial, numeroCuenta, numEmpleado);
-            Console.WriteLine("\t\t¿Quieres ingresar al empleado (si= s o S)?");
-            string respuesta = Console.ReadLine();
+                Empleado empleado = new Empleado(dni, nombre, apellidos, fechaNacimiento, titulaciónAlta, numeroSeguridadSocial, numeroCuenta, numEmpleado);
+                Console.WriteLine("\t\t¿Quieres ingresar al empleado (si= s o S)?");
+                string respuesta = Console.ReadLine();
 
-            if (respuesta.ToLower() == "s")
-            {
+                if (respuesta.ToLower() == "s")
+                {
                     listaEmpleado.Add(empleado);
-                Console.WriteLine("\t\tEmpleado agregado correctamente.");
+                    Console.WriteLine("\t\tEmpleado agregado correctamente.");
+                }
+
             }
-
-        }
-        catch (Exception ex){
+            catch (Exception ex)
+            {
                 Console.WriteLine("Se produjo un error: " + ex.Message);
-              
-        }
-    }
 
+            }
+        }
+        /// <summary>
+        /// Comprueba el dni en la lista para ver si hay o no un empleado ya registrado con ese DNI
+        /// </summary>
+        /// <param name="listaEmpleados"></param>
+        /// <param name="dni"></param>
+        /// <returns></returns>
         private bool CompruebaDni(List<Empleado> listaEmpleados, string dni)
         {
             Empleado empleadoEncontrado = listaEmpleados.Find(empleado => empleado.Dni == dni);
             return empleadoEncontrado != null;
         }
 
-        //Metodo para devolver el valor actual del contador y luego lo incrementa.
+        /// <summary>
+        /// Es un contador que devulve la posicion del contador actual de los empleados,
+        /// de esta manera se les genera un número de empleado a cada uno
+        /// </summary>
+        /// <returns></returns>
         private int GenerarNumEmpleado()
         {
-            
+
             return contadorNumEmpleado++;
         }
 
@@ -188,7 +198,9 @@ namespace AppCliente.Service
                 }
             } while (!opcionValida);
         }
-         
+        /// <summary>
+        /// Muestra el menu de modificacion de esta manera podremos elegir que queremos modificar
+        /// </summary>
         public void MenuModificacion()
         {
             // Mostramos el menú
@@ -202,6 +214,10 @@ namespace AppCliente.Service
             Console.WriteLine("7. Modificar Número de Cuenta Bancaria");
             Console.WriteLine("8. Salir");
         }
+        /// <summary>
+        /// Muestra los empleados es una lista mediante el metodo to string
+        /// </summary>
+        /// <param name="listaEmpleado"></param>
         public void MostrarEmpleados(List<Empleado> listaEmpleado)
         {
             try
@@ -221,57 +237,57 @@ namespace AppCliente.Service
             catch (Exception ex)
             {
                 Console.WriteLine("Se produjo un error: " + ex.Message);
-                
+
             }
         }
 
         void InterfaceEmpleado.ExportarEmpleado(List<Empleado> listaEmpleado, string ruta)
-        {            
+        {
 
             MostrarEmpleados(listaEmpleado);
-                Console.WriteLine("Dime el número de empleado que quieres exportar");
-                try
+            Console.WriteLine("Dime el número de empleado que quieres exportar");
+            try
+            {
+                if (listaEmpleado.Count > 0)
                 {
-                    if (listaEmpleado.Count > 0)
+                    int nEmpleado;
+                    if (int.TryParse(Console.ReadLine(), out nEmpleado))
                     {
-                        int nEmpleado;
-                        if (int.TryParse(Console.ReadLine(), out nEmpleado))
+                        foreach (Empleado empleado in listaEmpleado)
                         {
-                            foreach (Empleado empleado in listaEmpleado)
+
+                            if (empleado.NumEmpleado == nEmpleado)
                             {
-                                
-                                if (empleado.NumEmpleado == nEmpleado)
-                                {
                                 // Llama al método para escribir este empleado en el archivo
                                 ImplFichero.EscribirFichero(empleado, ruta);
-                                                                    
-                                    Console.WriteLine("Empleado exportado correctamente al archivo " + ruta);
-                                    return; 
-                                }
-                            }
 
-                            // Si llegamos aquí, significa que no se encontró un empleado con el número especificado
-                            Console.WriteLine("No se encontró ningún empleado con el número especificado: " + nEmpleado);
+                                Console.WriteLine("Empleado exportado correctamente al archivo " + ruta);
+                                return;
+                            }
                         }
-                        else
-                        {
-                            Console.WriteLine("Por favor, ingresa un número válido.");
-                        }
+
+                        // Si llegamos aquí, significa que no se encontró un empleado con el número especificado
+                        Console.WriteLine("No se encontró ningún empleado con el número especificado: " + nEmpleado);
                     }
                     else
                     {
-                        Console.WriteLine("La lista de empleados está vacía.");
+                        Console.WriteLine("Por favor, ingresa un número válido.");
                     }
                 }
-                catch (Exception ex)
+                else
                 {
-                    Console.WriteLine("Error al exportar el empleado: " + ex.Message);
-                    // Puedes manejar la excepción según tus necesidades, como registrar el error en un archivo de registro.
+                    Console.WriteLine("La lista de empleados está vacía.");
                 }
-            
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Error al exportar el empleado: " + ex.Message);
+                // Puedes manejar la excepción según tus necesidades, como registrar el error en un archivo de registro.
+            }
 
-        }       
-        
+
+        }
+
     }
 }
 

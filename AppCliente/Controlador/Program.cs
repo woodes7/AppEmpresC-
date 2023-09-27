@@ -11,7 +11,7 @@ namespace AppCliente
     {
         static void Main(string[] args)
         {
-            // Creamos instancias de las clases en C#
+            // Creamos instancias de las clases en 
             InterfaceEmpleado empleado = new ImplementEmpleado();
             InterfaceMenu implMenu = new ImplementMenu();
             InterfaceFichero implFile = new ImplementFichero();
@@ -19,23 +19,27 @@ namespace AppCliente
             // Creamos variables que vamos a usar
             int opcion;
             bool opcionValida = false;
-
+            string archivoRuta = "BasedeDatosEmpleados.txt";
             // Lista de Empleados
             List<Empleado> listaEmpleado = new List<Empleado>();
-            string archivoRuta = "bin/BasedeDatosPacientes.txt";
 
+
+            //Menu de opciones
             do
             {
                 try
                 {
                     // Mostramos el menú
                     implMenu.Menu();
-
+                    //Opciones del Menu
                     opcion = int.Parse(Console.ReadLine());
                     Console.WriteLine("[INFO] - Has seleccionado la opcion " + opcion);
 
                     switch (opcion)
                     {
+                        case 0:
+                            opcionValida = true;
+                            break;
                         case 1:
                             empleado.AddEmpleado(listaEmpleado, archivoRuta);
                             break;
@@ -67,5 +71,5 @@ namespace AppCliente
     }
 
 }
-   
+
 

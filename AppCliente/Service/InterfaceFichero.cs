@@ -14,8 +14,8 @@ namespace AppCliente.Service
         /// </summary>
         /// <param name="empleado">El empleado cuyos datos se escribirán en el archivo.</param>
         /// <param name="ruta">La ruta del archivo donde se guardarán los datos.</param>
-         void EscribirFichero(Empleado empleado, string ruta);
-    }  
+        void EscribirFichero(Empleado empleado, string ruta);
+    }
 
 }
 

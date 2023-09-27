@@ -1,0 +1,2 @@
+nombre, apellidos, dni, fechaNacimiento, titulaciónAlta, numeroSeguridadSocial, numeroCuenta
+1234234j, oweirut, sdiufg, 237/234/234, ERIOUWTY5, UI342324235J, AAS

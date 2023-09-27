@@ -16,8 +16,12 @@ namespace AppCliente.Service
             {
                 using (StreamWriter writer = new StreamWriter(ruta))
                 {
-                    // Aquí defines cómo deseas formatear y escribir los datos del empleado en el archivo
-                    string empleadoString = $"{empleado.Dni}, {empleado.Nombre}, {empleado.Apellidos}, {empleado.FechaNacimiento}, {empleado.TitulaciónAlta}.";
+                    // Encabezado
+                    string encabezado = "nombre, apellidos, dni, fechaNacimiento, titulaciónAlta, numeroSeguridadSocial, numeroCuenta";
+                    writer.WriteLine(encabezado);
+
+                    // Datos del empleado
+                    string empleadoString = $"{empleado.Dni}, {empleado.Nombre}, {empleado.Apellidos}, {empleado.FechaNacimiento}, {empleado.TitulaciónAlta}, {empleado.NumeroSeguridadSocial}, {empleado.NumeroCuenta}";
                     writer.WriteLine(empleadoString);
                 }
 
@@ -27,6 +31,8 @@ namespace AppCliente.Service
             {
                 Console.Error.WriteLine("Error al exportar los datos del empleado: " + e.Message);
             }
+
+
         }
     }
 }
